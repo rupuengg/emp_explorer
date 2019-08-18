@@ -1,16 +1,17 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { API_URL } from '../../config/constants';
+import EmployeeService from '../../services/EmployeeService';
 import EmployeeContext from '../../contexts/Employee-context';
 
 function Results({ searchText }) {
+  const empService = new EmployeeService();
+
   const [emps, setEmp] = useContext(EmployeeContext);
 
   useEffect(() => {
-    fetch(API_URL)
-      .then(res => res.json())
+    empService.getEmployees(searchText)
       .then(res => {
-        setEmp(res.filter(emp => emp.toLowerCase().indexOf(searchText.toLowerCase()) >= 0));
+        setEmp(res);
       })
       .catch(err => {
         console.log(err);

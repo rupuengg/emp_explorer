@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { API_URL } from '../../config/constants';
+import EmployeeService from '../../services/EmployeeService';
 
 function Overview(props) {
+  const empService = new EmployeeService();
+
   const [emp, setEmp] = useState([]);
 
   useEffect(() => {
-    fetch(API_URL + "/" + props.match.params.name)
-      .then(res => res.json())
+    empService.getEmployeeDetail(props.match.params.name)
       .then(res => {
         setEmp(res);
       })
