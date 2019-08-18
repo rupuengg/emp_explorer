@@ -19,7 +19,7 @@ function Results({ searchText }) {
 
   return (
     <ul className="list-group">
-      {emps.map((emp, index) => <li className="list-group-item" key={index}><Link to={"/" + emp}>{emp}</Link></li>)}
+      {emps.map((emp, index) => <li className="list-group-item" key={index}><Link to={"/overview/" + emp}>{emp}</Link></li>)}
     </ul>
   );
 }
