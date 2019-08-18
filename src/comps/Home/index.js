@@ -6,11 +6,11 @@ import HistoryContext from '../../contexts/History-context';
 
 function Home() {
   const [history, setHistory] = useContext(HistoryContext);
-  // let searchText = history[history.length-1] ? history[history.length-1] : "";
   const [searchText, setSearhText] = useState(history[history.length - 1] ? history[history.length - 1] : "");
 
   const onSearchHandle = (txt) => {
     setSearhText(txt);
+    setHistory(history.concat(txt));
   }
 
   return (

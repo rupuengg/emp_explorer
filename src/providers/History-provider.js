@@ -5,6 +5,6 @@ export const HistoryProvider = props => {
   const [history, setHistory] = useState([]);
 
   return (
-    <HistoryContext.Provider value={"history"}>{props.chilren}</HistoryContext.Provider>
+    <HistoryContext.Provider value={[history, setHistory]}>{props.chilren}</HistoryContext.Provider>
   );
 }
