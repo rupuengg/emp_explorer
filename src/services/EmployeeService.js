@@ -2,29 +2,25 @@ import { API_URL } from '../config/constants';
 
 class EmployeeService {
   async getEmployees(searchText) {
-    return new Promise((resolve, reject) => {
-      fetch(API_URL)
-        .then(res => res.json())
-        .then(res => {
-          resolve(res.filter(emp => emp.toLowerCase().indexOf(searchText.toLowerCase()) >= 0));
-        })
-        .catch(err => {
-          reject(err);
-        });
-    });
+    return fetch(API_URL)
+      .then(res => res.json())
+      .then(res => {
+        return res.filter(emp => emp.toLowerCase().indexOf(searchText.toLowerCase()) >= 0);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   async getEmployeeDetail(queryString) {
-    return new Promise((resolve, reject) => {
-      fetch(API_URL + "/" + queryString)
-        .then(res => res.json())
-        .then(res => {
-          resolve(res);
-        })
-        .catch(err => {
-          reject(err);
-        });
-    });
+    return fetch(API_URL + "/" + queryString)
+      .then(res => res.json())
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 }
 
