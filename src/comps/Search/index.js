@@ -1,14 +1,10 @@
 import React from 'react';
-// import HistoryContext from '../../contexts/History-context';
 
 function Search({ searchText, onSearch }) {
   let textInput = null;
 
-  // const [history, setHistory] = useContext(HistoryContext);
-
   const onButtonHandle = (val) => {
     onSearch(val);
-    // setHistory(history.concat(val));
   }
 
   return (

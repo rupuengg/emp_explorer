@@ -16,7 +16,8 @@ function Results({ searchText }) {
       .catch(err => {
         console.log(err);
       })
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchText]);
 
   return (
     <ul className="list-group">
