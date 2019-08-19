@@ -26,8 +26,6 @@ function Overview(props) {
         {emp[1]
           && emp[1]["direct-subordinates"]
           && <ul className="list-group">{emp[1]["direct-subordinates"].map((e, index) => <li className="list-group-item" key={index}>{e}</li>)}</ul>}
-        {!emp[1]
-          && <p>No subordinate!!!</p>}
       </div>
     </div>
   );
